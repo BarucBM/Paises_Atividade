@@ -1,0 +1,36 @@
+@if(isOpen){
+  <div class="top-0 left-0 w-screen h-screen fixed flex justify-center items-center z-30" style="background-color:rgba(0, 0, 0, 0.5);">
+    <div class="p-8 bg-branco rounded-lg " >
+      <p class="m-6 text-lg font-bold tracking-tight text-preto ">Post Details</p>
+      <form [formGroup]="curiosityForm" (ngSubmit)="onSubmit()" autocomplete="off" class="w-full" novalidate>
+        <div class="mb-5">
+          <label for="name" class="block mb-2 text-sm font-medium text-preto">Title</label>
+          <input type="text" id="name" class="form-control" placeholder="Title" formControlName="title">
+          @if(curiosityForm.get('title')?.hasError('required') && curiosityForm.get('title')?.touched){
+            <div class="form-error">Title is Required</div>
+          }
+        </div>
+
+        <div class="mb-5">
+          <label for="email" class="block mb-2 text-sm font-medium text-preto ">Description</label>
+          <input type="email" id="email" rows="4" class=" form-control block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " 
+          placeholder="Description" formControlName="descriptions">
+          @if(curiosityForm.get('description')?.hasError('required') && curiosityForm.get('description')?.touched){
+            <div class="form-error">Description is Required</div>
+          }
+        </div>
+        <div class="mb-5">
+          <label for="url" class="block mb-2 text-sm font-medium text-preto ">Image URL</label>
+          <input type="url" id="mobile" class="form-control" placeholder="URL" formControlName="imageUrl">
+          @if(curiosityForm.get('imageURL')?.hasError('required') && curiosityForm.get('imageURL')?.touched){
+            <div class="form-error">URL is Required</div>
+          }
+        </div>
+        <button type="submit"
+          class="text-preto bg-azul hover:bg-preto hover:text-branco font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center mx-6">Submit</button>
+        <button type="button" 
+          class="text-preto bg-azul hover:bg-preto hover:text-branco font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center mx-6" (click)="onClose()">Cancel</button>
+      </form>
+    </div> 
+  </div>
+}
