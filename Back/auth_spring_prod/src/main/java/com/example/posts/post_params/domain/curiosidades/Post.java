@@ -24,10 +24,10 @@ public class Post {
 
     private PostCategory category;
 
-    @Column(columnDefinition="varchar(1000)")
+    @Column(columnDefinition="varchar(10000)")
     private String descriptions;
 
-    @Column(columnDefinition="varchar(1000)")
+    @Column(columnDefinition="varchar(10000)")
     private String imageUrl;
 
     @JsonFormat(pattern="dd/MM/yyyy - HH:mm")

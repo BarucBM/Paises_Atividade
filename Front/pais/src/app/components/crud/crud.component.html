@@ -1,5 +1,6 @@
 
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
+<div class="max-h-screen max-w-screen overflow-auto pb-40">
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased ">
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12 ">
         <div >
             <mat-form-field>
@@ -125,6 +126,7 @@
         </div>
     </div>
 </section>
+</div>
 <!-- End block -->
 <!-- Create modal -->
 <app-curiosity-popup [isOpen]="isModelOpen" (closeModel)="onCloseModel()" [data]="post" [selectedEntity]="selectedEntity"></app-curiosity-popup>

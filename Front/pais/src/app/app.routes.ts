@@ -5,6 +5,8 @@ import { LoginComponent } from './components/login/login.component';
 import { CuriositiesComponent } from './components/curiosities/curiosities.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CrudComponent } from './components/crud/crud.component';
+import { SportsComponent } from './components/sports/sports.component';
+import { CultureComponent } from './components/culture/culture.component';
 
 export const routes: Routes = [{
     path:"",
@@ -23,8 +25,14 @@ export const routes: Routes = [{
         path:"config",
         component:CrudComponent
     },{
-        path:"coriosities",
+        path:"curiosities",
         component:CuriositiesComponent
+    },{
+        path:"sports",
+        component:SportsComponent
+    },{
+        path:"culture",
+        component:CultureComponent
     }]},
     {
         path:"login",

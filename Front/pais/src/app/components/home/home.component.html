@@ -4,9 +4,9 @@
     <section class="p-0 w-full h-4/5 bg-transparent bg-center bg-fixed bg-cover contrast-25 m-0 opacity-80 shadow shadow-[#AEEBFF] 
         content-center
         bg-[url(https://viajanteemserie.com.br/wp-content/uploads/2024/01/Mundo-Maori-Nova-Zelandia-Autentica-em-144-Horas-.webp)]">
-        <div  [ngClass]="{'bg-transparent text-9xl': !scrolled, 
-                    'bg-transparent  absolute top-0.5 left-50 text-3xl': scrolled}"
-                    class=" flex h-min w-full text-start ml-12 mb-28 p-4 pl-6 h-full  rounded-tl-3xl space-x-20">
+        <div  [ngClass]="{'text-9xl ml-12 mb-28 p-4 pl-6 h-full': !scrolled, 
+                    'absolute top-4 left-50 text-3xl ': scrolled}"
+                    class=" flex h-min w-full text-start   rounded-tl-3xl space-x-20 bg-transparent">
             <p  class="h-min  fonte font-bold contrast-100 opacity-100 text-branco "
             [ngClass]="{'w-min': !scrolled, 
                     'w-full': scrolled}">
@@ -17,41 +17,76 @@
     </section>
     <section class="bg-[#040F16] p-4 text-white w-full h-4/5 justify-between">
 
-        <mat-tab-group animationDuration="2000ms"
+        <mat-tab-group  animationDuration="2000ms"
         class="w-full p-4" >
-            <mat-tab label="Curiosities" >
-              <div class="flex place-content-center ">
+            <mat-tab *ngIf="curiosity != null " label="Curiosities" >
+              <div class="flex place-content-center  ">
                 <mat-card class="my-4 max-w-fit " appearance="outlined">
                   <div class="flex flex-row bg-preto ">
                     <div class="space-y-9">
                       <mat-card-header class="p-4">
                         <div mat-card-avatar class="example-header-image"></div>
-                        <p class="text-6xl p-4 fonte">MAORI</p>
+                        <p class="text-6xl p-4 fonte">{{curiosity.title}}</p>
                       </mat-card-header>
                       
                       <mat-card-content >
                         <p class="text-justify">
-                          Between 30 and 40% of Icelanders will not deny the existence of elves. 
-                          Icelandic folklore is still rich with stories about the Huldufólk, meaning "hidden people", who are said to live in the lava fields.
-                          When constructions take place in certain lava fields of the country, there is even a special spokesperson for the elves.
-                          You may have heard, or seen photos like the one below, of the Reynisdrangar sea stacks near Vík? They dramatically rise from the Atlantic, 
-                          off the coast of Reynisfjara. 
-                          These bizarre-looking rock pillars are said to be petrified trolls, turned to stone when they were exposed to the dawn sunrise, 
-                          and frozen forever in time.
+                          {{curiosity.descriptions}}
                         </p>
                       </mat-card-content>
                       <mat-card-actions class="flex place-content-center" >
-                        <button mat-button>LIKE</button>
-                        <button mat-button>SHARE</button>
+                        <a href="/curiosities">CURIOSITIES PAGE</a>
                       </mat-card-actions>
                     </div>
-                    <img mat-card-image class="h-96 rounded-lg hover:scale-100 " src="https://images.squarespace-cdn.com/content/v1/52f6548ce4b0bae912c562f0/1419029165859-NMJGZ52MO8GILG5UJAC3/image-asset.jpeg" alt="Photo of a Shiba Inu">
+                    <img *ngIf="curiosity.imageUrl != 'n/a'" mat-card-image class="h-96 rounded-lg hover:scale-100 " src="curiosity.imageUrl" alt="Photo of a Shiba Inu">
                   </div>
                 </mat-card>
               </div>
             </mat-tab>
-            <mat-tab label="Second">Content 2</mat-tab>
-            <mat-tab label="Third">Content 3</mat-tab>
+            <mat-tab *ngIf="sport != null " label="Sports"><div class="flex place-content-center ">
+              <mat-card class="my-4 max-w-fit " appearance="outlined">
+                <div class="flex flex-row bg-preto ">
+                  <div class="space-y-9">
+                    <mat-card-header class="p-4">
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <p class="text-6xl p-4 fonte">{{sport.title}}</p>
+                    </mat-card-header>
+                    
+                    <mat-card-content >
+                      <p class="text-justify">
+                        {{sport.descriptions}}
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions class="flex place-content-center" >
+                      <a href="/curiosities">SPORTS PAGE</a>
+                    </mat-card-actions>
+                  </div>
+                  <img *ngIf="sport.imageUrl != 'n/a'" mat-card-image class="h-96 rounded-lg hover:scale-100 " src="sport.imageUrl" alt="Photo of a Shiba Inu">
+                </div>
+              </mat-card>
+            </div></mat-tab>
+            <mat-tab *ngIf="culture != null " label="Culture"><div class="flex place-content-center ">
+              <mat-card class="my-4 max-w-fit " appearance="outlined">
+                <div class="flex flex-row bg-preto ">
+                  <div class="space-y-9">
+                    <mat-card-header class="p-4">
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <p class="text-6xl p-4 fonte">{{culture.title}}</p>
+                    </mat-card-header>
+                    
+                    <mat-card-content >
+                      <p class="text-justify">
+                        {{culture.descriptions}}
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions class="flex place-content-center" >
+                      <a href="/curiosities">CULTURE PAGE</a>
+                    </mat-card-actions>
+                  </div>
+                  <img *ngIf="culture.imageUrl != 'n/a'" mat-card-image class="h-96 rounded-lg hover:scale-100 " src="{{culture.imageUrl}}" alt="Photo of a Shiba Inu">
+                </div>
+              </mat-card>
+            </div></mat-tab>
         </mat-tab-group>
 
         

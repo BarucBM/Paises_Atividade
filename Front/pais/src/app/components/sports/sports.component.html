@@ -1,17 +1,16 @@
-<!-- component -->
 <div class="absolute top-2 left-50 text-3xl flex h-min w-full text-start   rounded-tl-3xl space-x-20 bg-transparent">
     <p class="h-min  fonte font-bold contrast-100 opacity-100 text-branco w-full ">
-        CURIOSITIES
+        SPORTS
     </p>
 </div>
 <div class="flex justify-center overflow-y-auto max-h-screen pb-40">
     <div class="flex flex-col h-fit justify-items-center mx-10 w-fit  
     2xl:grid 2xl:grid-cols-2 2xl:w-full">
-        <div class="relative flex bg-clip-border rounded-xl bg-white text-preto shadow-md w-full max-w-[60rem] 2xl:max-w-[38rem] max-h-screen flex-row m-4" *ngFor="let post of curiosities">
+        <div class="relative flex bg-clip-border rounded-xl bg-white text-preto shadow-md w-full max-w-[60rem] 2xl:max-w-[38rem] max-h-fit flex-row m-4" *ngFor="let post of posts">
             <div class="w-52 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0" *ngIf="post.imageUrl != 'n/a'">
                 <img src="{{post.imageUrl}}" alt="card-image" class="object-cover w-full h-full border border-verde" />
             </div>
-            <div class="p-6 2xl:max-h-fit 2xl:max-w-full ">
+            <div class="p-6 h-fit 2xl:max-w-full ">
                 <h4 class="block max-w-full mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-azul">
                     {{post.title}}
                 </h4>
